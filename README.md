@@ -12,3 +12,4 @@ Each directory contains an `index.html` that redirects to a target URL via `<met
 |------|-----|--------|
 | `/` | [octionary.github.io/redirect/](https://octionary.github.io/redirect/) | https://linktr.ee/bjarke |
 | `/netcast-poster-2026/` | [octionary.github.io/redirect/netcast-poster-2026/](https://octionary.github.io/redirect/netcast-poster-2026/) | https://linktr.ee/bjarke |
+| `/fab-eoi-student/` | [octionary.github.io/redirect/fab-eoi-student/](https://octionary.github.io/redirect/fab-eoi-student/) | https://airtable.com/appKTlyQBhgocWSXG/pag772np518V3jwz3/form |
