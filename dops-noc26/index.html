@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bjarke Almer Frederiksen — DOPS NOC26</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Instrument+Sans:wght@400;500;600&display=swap');
+
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+    :root {
+      --bg: #f4f0eb;
+      --surface: rgba(255,255,255,0.75);
+      --surface-hover: rgba(255,255,255,0.95);
+      --text: #1a1a2e;
+      --text-muted: #6b6580;
+      --accent-1: #e8453c;
+      --accent-2: #f0a030;
+      --accent-3: #2faa4f;
+      --accent-4: #2d7ff9;
+      --accent-5: #7c4dff;
+      --radius: 60px;
+    }
+
+    html { height: 100%; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+      font-family: 'Instrument Sans', system-ui, sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Warm spectral washes */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 15% 15%, rgba(124,77,255,0.12) 0%, transparent 55%),
+        radial-gradient(ellipse 55% 45% at 85% 25%, rgba(45,127,249,0.10) 0%, transparent 50%),
+        radial-gradient(ellipse 50% 40% at 60% 85%, rgba(240,160,48,0.10) 0%, transparent 50%),
+        radial-gradient(ellipse 45% 35% at 5% 75%, rgba(47,170,79,0.08) 0%, transparent 45%);
+      pointer-events: none;
+      z-index: 0;
+      animation: shimmer 14s ease-in-out infinite alternate;
+    }
+
+    @keyframes shimmer {
+      0%   { opacity: 1; transform: scale(1); }
+      100% { opacity: 0.6; transform: scale(1.06); }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 420px;
+      padding: 3rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .header {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .header h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 1.55rem;
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+
+    .header p {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* Spectral divider */
+    .divider {
+      width: 100%;
+      height: 2px;
+      border-radius: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--accent-1) 10%,
+        var(--accent-2) 30%,
+        var(--accent-3) 50%,
+        var(--accent-4) 70%,
+        var(--accent-5) 90%,
+        transparent
+      );
+      opacity: 0.5;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      width: 100%;
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius);
+      background: var(--surface);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(0,0,0,0.06);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .link-btn:hover {
+      background: var(--surface-hover);
+      border-color: rgba(0,0,0,0.1);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(124,77,255,0.10), 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    .link-btn:active {
+      transform: translateY(0);
+    }
+
+    .link-btn svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      opacity: 0.6;
+    }
+
+    /* Entrance animations */
+    .container > * {
+      animation: fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+    }
+    .container > :nth-child(1) { animation-delay: 0.05s; }
+    .container > :nth-child(2) { animation-delay: 0.15s; }
+    .container > :nth-child(3) { animation-delay: 0.25s; }
+
+    .links .link-btn {
+      animation: fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+    }
+    .links .link-btn:nth-child(1) { animation-delay: 0.3s; }
+    .links .link-btn:nth-child(2) { animation-delay: 0.4s; }
+
+    @keyframes fade-up {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 2.5rem 1.25rem; }
+      .header h1 { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Bjarke Almer Frederiksen</h1>
+      <p>DOPS National Optics Congress 2026</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="links">
+      <a href="https://linktr.ee/bjarke" class="link-btn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+        </svg>
+        <span>Linktree (CV, contact details)</span>
+      </a>
+      <a href="https://drive.google.com/file/d/1yjnmwEsd5sSY3FOKinkixB7xQdqlaOEj/view?usp=sharing" class="link-btn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+          <polyline points="10 9 9 9 8 9"/>
+        </svg>
+        <span>Thesis (PDF)</span>
+      </a>
+    </div>
+  </div>
+</body>
+</html>
