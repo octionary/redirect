@@ -11,7 +11,8 @@ Each directory contains an `index.html` that redirects to a target URL via `<met
 | Path | URL | Target |
 |------|-----|--------|
 | `/` | [octionary.github.io/redirect/](https://octionary.github.io/redirect/) | https://linktr.ee/bjarke |
-| `/netcast-poster-2026/` | [octionary.github.io/redirect/netcast-poster-2026/](https://octionary.github.io/redirect/netcast-poster-2026/) | https://www.spiedigitallibrary.org/posterpreview/a6f35f14-eeef-f011-a9af-00505691c5e1 |
+| `/netcast-poster-2026/` | [octionary.github.io/redirect/netcast-poster-2026/](https://octionary.github.io/redirect/netcast-poster-2026/) | → /spie-pe26/ |
+| `/spie-pe26/` | [octionary.github.io/redirect/spie-pe26/](https://octionary.github.io/redirect/spie-pe26/) | Landing page (Manuscript, LinkedIn, Linktree) |
 | `/fab-eoi-student/` | [octionary.github.io/redirect/fab-eoi-student/](https://octionary.github.io/redirect/fab-eoi-student/) | https://airtable.com/appKTlyQBhgocWSXG/pag772np518V3jwz3/form |
 | `/dops-noc26/` | [octionary.github.io/redirect/dops-noc26/](https://octionary.github.io/redirect/dops-noc26/) | Landing page (Linktree + Thesis) |
 | `/bjarke-slides/` | [octionary.github.io/redirect/bjarke-slides/](https://octionary.github.io/redirect/bjarke-slides/) | Google Drive slides folder |
